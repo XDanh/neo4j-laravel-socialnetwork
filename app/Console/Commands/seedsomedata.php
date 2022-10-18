@@ -60,7 +60,7 @@ class seedSomeData extends Command
                 WHERE Joe.name = 'Joe' AND Tom.name = 'Tom' AND ZuzanaK.name = 'Zuzana K.'
                 CREATE (Joe)-[r:WORKS_FOR]->(Tom), (Tom)-[q:WORKS_FOR]->(ZuzanaK), (ZuzanaK)-[s:IS_DAUGHTER_OF]->(Tom)
                 RETURN r,q,s ");
-
+            echo ('dada');
         // Deleting relationship only
         // $client->run('MATCH (ZuzanaK)-[r:PARENT_OF]->() DELETE r');
 

@@ -13,7 +13,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/persion', function () {
+    return view('persion');
+})->name("persion");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
