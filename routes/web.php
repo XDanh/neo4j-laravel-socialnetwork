@@ -10,6 +10,9 @@
 |
 */
 
+Route::get('/1', function () {
+    return view('index1');
+});
 Route::get('/', function () {
     return view('welcome');
 });

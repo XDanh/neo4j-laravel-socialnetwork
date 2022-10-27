@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GraphAware\Bolt\Protocol\V1\Session;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Session $client)
     {
+        $cypher="
+        MERGE (keanu:Person {name: 'Keanu Reeves'})
+        ON CREATE
+        SET keanu.created = timestamp()
+        RETURN keanu.name, keanu.created";
+        $client->run($cypher);
         return view('home');
+
     }
 }
